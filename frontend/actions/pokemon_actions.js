@@ -1,5 +1,5 @@
 import React from 'react'
-import { fetchAllPokemon } from '../util/api_util'
+import { fetchAllPokemon, fetchOnePokemon } from '../util/api_util'
 
 
 
@@ -14,6 +14,11 @@ export const receiveAllPokemon = (pokemon) => {
 
 export const requestAllPokemon = () => (dispatch) => (
   fetchAllPokemon()
+    .then(pokemon => dispatch(receiveAllPokemon(pokemon)))
+);
+
+export const requestOnePokemon = (id) => (dispatch) => (
+  fetchOnePokemon(id)
     .then(pokemon => dispatch(receiveAllPokemon(pokemon)))
 );
 

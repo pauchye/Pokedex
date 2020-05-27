@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactRedux from 'react-redux';
+import { PokemonIndexItem } from './pokemon_index_item'
 
 
 class PokemonIndex extends React.Component{
@@ -18,12 +19,8 @@ class PokemonIndex extends React.Component{
       <div>
       <ul>
         {pokemon.map(poke => {
-          return(
-          <li key={poke.id}>
-            {poke.name}: 
-            <img src={poke.image_url} height="25" width="25"/>
-          </li>
-        )})}
+          return <PokemonIndexItem key={poke.id} pokemon={poke} />
+        })}
       </ul>
     </div>
     )
